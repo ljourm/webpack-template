@@ -5,7 +5,12 @@
   "author": "ljourm <ljourm@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "serve": "webpack serve",
+    "build": "webpack build"
   },
   "devDependencies": {
+    "webpack": "^5.10.2",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
   }
 }
