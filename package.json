@@ -1,0 +1,11 @@
+{
+  "name": "startpage_sample",
+  "version": "1.0.0",
+  "repository": "https://github.com/ljourm/startpage-sample",
+  "author": "ljourm <ljourm@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+  },
+  "devDependencies": {
+  }
+}
