@@ -1,30 +1,30 @@
-const path = require('path');
-const globule = require('globule')
+const path = require("path")
+const globule = require("globule")
 
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require("clean-webpack-plugin")
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 const mode = "development"
-const enabledSourceMap = true;
-const minify = false;
+const enabledSourceMap = true
+const minify = false
 
 const pageFiles = globule.find(
-  './src/pages/**/*.pug', {
+  "./src/pages/**/*.pug", {
     ignore: [
-      './src/pages/**/_*/*.pug'
-    ]
-  }
+      "./src/pages/**/_*/*.pug",
+    ],
+  },
 )
 
-const outputPath = path.resolve(__dirname, 'dist')
+const outputPath = path.resolve(__dirname, "dist")
 
 module.exports = {
   mode: mode,
-  entry: './src/index.js',
+  entry: "./src/index.js",
   output: {
     path: outputPath,
-    filename: 'bundle.js'
+    filename: "bundle.js",
   },
   devServer: {
     contentBase: outputPath,
@@ -43,13 +43,13 @@ module.exports = {
             options: {
               url: false,
               sourceMap: enabledSourceMap,
-              importLoaders: 2
-            }
+              importLoaders: 2,
+            },
           },
           {
             loader: "sass-loader",
             options: {
-              sourceMap: enabledSourceMap
+              sourceMap: enabledSourceMap,
             },
           },
         ],
@@ -58,13 +58,13 @@ module.exports = {
         test: /\.pug$/,
         use: [
           {
-            loader: 'pug-loader',
+            loader: "pug-loader",
             options: {
               pretty: true,
-            }
+            },
           },
         ],
-      }
+      },
     ],
   },
   plugins: [
@@ -72,7 +72,7 @@ module.exports = {
       cleanOnceBeforeBuildPatterns: ["**/*", "!.keep", "!css"],
     }),
     new MiniCssExtractPlugin({
-      filename: 'css/style.css',
+      filename: "css/style.css",
       ignoreOrder: true,
     }),
     ...pageFiles.map((file) => {
@@ -80,6 +80,6 @@ module.exports = {
         template: file,
         minify: minify,
       })
-    })
-  ]
-};
+    }),
+  ],
+}
