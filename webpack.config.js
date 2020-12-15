@@ -1,10 +1,21 @@
 const path = require('path');
+const globule = require('globule')
 
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const mode = "development"
 const enabledSourceMap = true;
+const minify = false;
+
+const pageFiles = globule.find(
+  './src/pages/**/*.pug', {
+    ignore: [
+      './src/pages/**/_*/*.pug'
+    ]
+  }
+)
 
 const outputPath = path.resolve(__dirname, 'dist')
 
@@ -43,11 +54,32 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.pug$/,
+        use: [
+          {
+            loader: 'pug-loader',
+            options: {
+              pretty: true,
+            }
+          },
+        ],
+      }
     ],
   },
   plugins: [
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ["**/*", "!.keep", "!css"],
     }),
+    new MiniCssExtractPlugin({
+      filename: 'css/style.css',
+      ignoreOrder: true,
+    }),
+    ...pageFiles.map((file) => {
+      return new HtmlWebpackPlugin({
+        template: file,
+        minify: minify,
+      })
+    })
   ]
 };
