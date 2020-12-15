@@ -7,8 +7,12 @@
   "scripts": {
     "serve": "webpack serve",
     "build": "webpack",
+    "lint": "yarn lint:js && yarn lint:style",
+    "lint:fix": "yarn lint:js:fix && yarn lint:style:fix",
     "lint:js": "eslint --ext .js ./",
-    "lint:js:fix": "eslint --fix --ext .js ./"
+    "lint:js:fix": "eslint --fix --ext .js ./",
+    "lint:style": "stylelint **/*.css **/*.scss",
+    "lint:style:fix": "stylelint --fix **/*.css **/*.scss"
   },
   "devDependencies": {
     "bulma": "^0.9.1",
@@ -25,6 +29,11 @@
     "pug": "^3.0.0",
     "pug-loader": "^2.4.0",
     "sass-loader": "^10.1.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.18.0",
+    "stylelint-webpack-plugin": "^2.1.1",
     "webpack": "^5.10.2",
     "webpack-cli": "^4.2.0",
     "webpack-dev-server": "^3.11.0"
