@@ -21,6 +21,7 @@ const outputPath = path.resolve(__dirname, "dist")
 
 module.exports = {
   mode: mode,
+  devtool: "source-map",
   entry: "./src/index.js",
   output: {
     path: outputPath,
