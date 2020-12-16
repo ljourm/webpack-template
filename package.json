@@ -1,7 +1,7 @@
 {
-  "name": "startpage_sample",
+  "name": "webpack-template",
   "version": "1.0.0",
-  "repository": "https://github.com/ljourm/startpage-sample",
+  "repository": "https://github.com/ljourm/webpack-template",
   "author": "ljourm <ljourm@gmail.com>",
   "license": "MIT",
   "scripts": {
