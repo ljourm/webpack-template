@@ -1,13 +1,12 @@
+const environment = process.env.NODE_ENV || "development"
+const envSet = require(`./environments/${environment}.js`)
+
 const path = require("path")
 const globule = require("globule")
 
 const {CleanWebpackPlugin} = require("clean-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
-
-const mode = "development"
-const enabledSourceMap = true
-const minify = false
 
 const pageFiles = globule.find(
   "./src/pages/**/*.pug", {
@@ -20,8 +19,8 @@ const pageFiles = globule.find(
 const outputPath = path.resolve(__dirname, "dist")
 
 module.exports = {
-  mode: mode,
-  devtool: "source-map",
+  mode: envSet.mode,
+  devtool: envSet.enabledSourceMap ? "source-map" : false,
   entry: "./src/index.js",
   output: {
     path: outputPath,
@@ -53,14 +52,14 @@ module.exports = {
             loader: "css-loader",
             options: {
               url: false,
-              sourceMap: enabledSourceMap,
+              sourceMap: envSet.enabledSourceMap,
               importLoaders: 2,
             },
           },
           {
             loader: "postcss-loader",
             options: {
-              sourceMap: enabledSourceMap,
+              sourceMap: envSet.enabledSourceMap,
               postcssOptions: {
                 plugins: [
                   ["autoprefixer"],
@@ -71,7 +70,10 @@ module.exports = {
           {
             loader: "sass-loader",
             options: {
-              sourceMap: enabledSourceMap,
+              sourceMap: envSet.enabledSourceMap,
+              sassOptions: {
+                outputStyle: envSet.minify ? "compressed" : "expanded",
+              },
             },
           },
         ],
@@ -100,9 +102,12 @@ module.exports = {
     ...pageFiles.map((file) => {
       return new HtmlWebpackPlugin({
         template: file,
-        minify: minify,
+        minify: envSet.minify,
       })
     }),
   ],
   target: ["web", "es5"], // ES5(IE11)
+  optimization: {
+    minimize: envSet.minify,
+  },
 }

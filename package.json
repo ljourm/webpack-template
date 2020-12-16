@@ -7,6 +7,7 @@
   "scripts": {
     "serve": "webpack serve",
     "build": "webpack",
+    "build:prod": "cross-env NODE_ENV=\"production\" webpack",
     "lint": "yarn lint:js && yarn lint:style",
     "lint:fix": "yarn lint:js:fix && yarn lint:style:fix",
     "lint:js": "eslint --ext .js ./",
@@ -21,6 +22,7 @@
     "babel-loader": "^8.2.2",
     "bulma": "^0.9.1",
     "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.0.1",
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
