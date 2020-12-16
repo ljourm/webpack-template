@@ -48,6 +48,17 @@ module.exports = {
             },
           },
           {
+            loader: "postcss-loader",
+            options: {
+              sourceMap: enabledSourceMap,
+              postcssOptions: {
+                plugins: [
+                  ["autoprefixer"],
+                ],
+              },
+            },
+          },
+          {
             loader: "sass-loader",
             options: {
               sourceMap: enabledSourceMap,
