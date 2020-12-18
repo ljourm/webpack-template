@@ -24,6 +24,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: outputPath,
+    publicPath: "",
     filename: "bundle.js",
   },
   devServer: {
@@ -79,6 +80,15 @@ module.exports = {
         ],
       },
       {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: "file-loader",
+        options:{
+          name: (resourcePath) => {
+            return resourcePath.match(/img.*$/)[0]
+          },
+        },
+      },
+      {
         test: /\.pug$/,
         use: [
           {
@@ -93,7 +103,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ["**/*", "!.keep", "!css"],
+      cleanOnceBeforeBuildPatterns: ["**/*", "!.keep", "!css", "!img"],
     }),
     new MiniCssExtractPlugin({
       filename: "css/style.css",
