@@ -110,4 +110,9 @@ module.exports = {
   optimization: {
     minimize: envSet.minify,
   },
+  resolve: {
+    alias: {
+      assets: path.resolve(__dirname, "src/assets/"),
+    },
+  },
 }
