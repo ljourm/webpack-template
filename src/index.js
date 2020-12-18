@@ -6,7 +6,7 @@ const aa = {
   b: 2,
 }
 const cc = {
-  ...a, c: 1,
+  ...aa, c: 1,
 }
 
 console.log(cc)
