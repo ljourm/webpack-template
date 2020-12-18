@@ -1,5 +1,6 @@
 const environment = process.env.NODE_ENV || "development"
 const envSet = require(`./environments/${environment}.js`)
+const isDev = environment === "development"
 
 const path = require("path")
 const globule = require("globule")
@@ -116,7 +117,7 @@ module.exports = {
       })
     }),
   ],
-  target: ["web", "es5"], // ES5(IE11)
+  target: isDev ? "web" : ["web", "es5"],
   optimization: {
     minimize: envSet.minify,
   },
