@@ -1,4 +1,4 @@
-import "./assets/js/main"
+import "./assets/js/index"
 import "./assets/scss/style.scss"
 
 const aa = {
