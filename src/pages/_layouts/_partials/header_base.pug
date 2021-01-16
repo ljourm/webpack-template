@@ -1,33 +1,34 @@
-.navbar-brand
-  a.navbar-item(href='/')
-    img(src=require("assets/img/logo.png").default width='160' height='50')
-  a.navbar-burger(role='button' aria-label='menu' aria-expanded='false' data-target='navbarMenu')
-    i.fas.fa-bars.fa-2x.menu-bars
-    span(aria-hidden='true')
-#navbarMenu.navbar-menu
-  .navbar-start
-    a.navbar-item
-      | Home
-    a.navbar-item
-      | Documentation
-    .navbar-item.has-dropdown.is-hoverable
-      a.navbar-link
-        | More
-      .navbar-dropdown
-        a.navbar-item
-          | About
-        a.navbar-item
-          | Jobs
-        a.navbar-item
-          | Contact
-        hr.navbar-divider
-        a.navbar-item
-          | Report an issue
-  .navbar-end
-    .navbar-item
-      .buttons
-        a.button.is-primary
-          span.icon
-            i.fas.fa-envelope
-          span
-            strong お問い合わせ
+.container
+  .navbar-brand
+    a.navbar-item(href='/')
+      img(src=require("assets/img/logo.png").default width='160' height='50')
+    a.navbar-burger(role='button' aria-label='menu' aria-expanded='false' data-target='navbarMenu')
+      i.fas.fa-bars.fa-2x.menu-button
+      i.fas.fa-times.fa-2x.menu-button
+  .navbar-menu
+    .navbar-menu-inner
+      .navbar-start
+      .navbar-end
+        a.navbar-item(href="#news")
+          .wrapper
+            .first News
+            .second ニュース
+        a.navbar-item(href="#about")
+          .wrapper
+            .first About
+            .second 概要
+        a.navbar-item(href="#service")
+          .wrapper
+            .first Service
+            .second サービス
+        a.navbar-item(href="#price")
+          .wrapper
+            .first Price
+            .second 料金
+        .navbar-item
+          .buttons
+            a.button.is-primary
+              span.icon
+                i.fas.fa-envelope
+              span
+                strong お問い合わせ

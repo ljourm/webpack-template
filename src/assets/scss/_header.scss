@@ -1,19 +1,124 @@
-nav.is-fixed-top {
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12);
-  transform: translateY(-100%);
-  transition: all 0.3s;
+body.is-fixed {
+  position: fixed;
+  top: 0;
+}
 
-  &.is-active {
-    transform: translateY(0);
+nav {
+  height: #{$navbar-height};
+  user-select: none;
+
+  .container {
+    height: #{$navbar-height};
   }
 
-  .menu-bars {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: block;
-    margin: auto;
+  &.is-fixed-top {
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12);
+    transform: translateY(-100%);
+    transition: all 0.3s;
+
+    &.is-active {
+      transform: translateY(0);
+    }
+  }
+
+  .navbar-menu-inner {
+    width: 100%;
+  }
+
+  .navbar-burger {
+    .menu-button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: block;
+      margin: auto;
+      transition: all 0.2s;
+    }
+
+    .fa-bars {
+      opacity: 1;
+    }
+
+    .fa-times {
+      opacity: 0;
+    }
+
+    &.is-active .fa-bars {
+      opacity: 0;
+    }
+
+    &.is-active .fa-times {
+      opacity: 1;
+    }
+  }
+
+  .navbar-menu {
+    .navbar-item {
+      padding-right: 1rem;
+      padding-left: 1rem;
+
+      .first,
+      .second {
+        display: block;
+
+        @include until($navbar-breakpoint) {
+          display: inline-block;
+        }
+      }
+
+      .first {
+        font-size: 1.3rem;
+      }
+
+      .second {
+        margin-top: -0.4rem;
+        font-size: 0.8rem;
+        text-align: right;
+
+        @include until($navbar-breakpoint) {
+          margin-left: 0.5rem;
+
+          &::before,
+          &::after {
+            content: "-";
+          }
+
+          &::before {
+            margin-right: 0.2rem;
+          }
+
+          &::after {
+            margin-left: 0.2rem;
+          }
+        }
+      }
+    }
+
+    @include until($navbar-breakpoint) {
+      display: block;
+      width: 100%;
+      margin-left: 100%;
+      padding: 0;
+      overflow: visible !important;
+
+      .navbar-menu-inner {
+        height: calc(100vh - #{$navbar-height});
+        margin-left: 0;
+        background-color: #f5fcf5;
+        transition: all 0.3s;
+
+        &.is-active {
+          margin-left: 0;
+        }
+      }
+
+      &.is-active {
+        .navbar-menu-inner {
+          margin-left: -100%;
+        }
+      }
+    }
   }
 }
