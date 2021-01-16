@@ -8,12 +8,13 @@
     "serve": "webpack serve",
     "build": "webpack",
     "build:prod": "cross-env NODE_ENV=\"production\" webpack",
-    "lint": "yarn lint:js && yarn lint:style",
+    "lint": "yarn lint:js && yarn lint:style && yarn lint:pug",
     "lint:fix": "yarn lint:js:fix && yarn lint:style:fix",
     "lint:js": "eslint .",
     "lint:js:fix": "eslint --fix .",
     "lint:style": "stylelint **/*.css **/*.scss",
-    "lint:style:fix": "stylelint --fix **/*.css **/*.scss"
+    "lint:style:fix": "stylelint --fix **/*.css **/*.scss",
+    "lint:pug": "pug-lint ."
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
@@ -39,6 +40,7 @@
     "postcss-loader": "^4.1.0",
     "prettier": "^2.2.1",
     "pug": "^3.0.0",
+    "pug-lint": "^2.6.0",
     "pug-loader": "^2.4.0",
     "sass-loader": "^10.1.0",
     "stylelint": "^13.8.0",
