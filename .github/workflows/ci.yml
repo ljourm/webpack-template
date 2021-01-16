@@ -20,3 +20,5 @@ jobs:
       run: yarn lint:js
     - name: Run lint:style
       run: yarn lint:style
+    - name: Run lint:pug
+      run: yarn lint:pug
