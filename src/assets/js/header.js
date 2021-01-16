@@ -23,14 +23,12 @@ $(".navbar-burger").on("click", function() {
   const navButton = $(this)
   navButton.toggleClass(classActive)
 
-  const navMenu = $(this).closest("nav")
-                         .find(".navbar-menu")
+  const navMenu = $(this).closest("nav").find(".navbar-menu")
   navMenu.toggleClass(classActive)
 
   if (navMenu.hasClass(classActive)) {
     const scrollTop = $(window).scrollTop()
-    $("body").addClass(classFixed)
-             .css({"top": -scrollTop})
+    $("body").addClass(classFixed).css({"top": -scrollTop})
   } else {
     const positionTopWithPx = $("body").css("top")
     const scrollTop = positionTopWithPx.match(/\d+/)[0]
