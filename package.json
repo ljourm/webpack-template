@@ -10,8 +10,8 @@
     "build:prod": "cross-env NODE_ENV=\"production\" webpack",
     "lint": "yarn lint:js && yarn lint:style",
     "lint:fix": "yarn lint:js:fix && yarn lint:style:fix",
-    "lint:js": "eslint ./**/*.js",
-    "lint:js:fix": "eslint --fix ./**/*.js",
+    "lint:js": "eslint .",
+    "lint:js:fix": "eslint --fix .",
     "lint:style": "stylelint **/*.css **/*.scss",
     "lint:style:fix": "stylelint --fix **/*.css **/*.scss"
   },
