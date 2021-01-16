@@ -21,10 +21,6 @@ nav {
     }
   }
 
-  .navbar-menu-inner {
-    width: 100%;
-  }
-
   .navbar-burger {
     .menu-button {
       position: absolute;
@@ -103,7 +99,7 @@ nav {
       padding: 0;
       overflow: visible !important;
 
-      .navbar-menu-inner {
+      .navbar-end {
         height: calc(100vh - #{$navbar-height});
         margin-left: 0;
         background-color: #f5fcf5;
@@ -115,7 +111,7 @@ nav {
       }
 
       &.is-active {
-        .navbar-menu-inner {
+        .navbar-end {
           margin-left: -100%;
         }
       }
