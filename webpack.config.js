@@ -1,5 +1,8 @@
 const environment = process.env.NODE_ENV || "development"
-const envSet = require(`./environments/${environment}.js`)
+const envSet = Object.assign(
+  require("./environments/base.js"),
+  require(`./environments/${environment}.js`),
+)
 const isDev = environment === "development"
 
 const path = require("path")
@@ -96,6 +99,7 @@ module.exports = {
             loader: "pug-loader",
             options: {
               pretty: true,
+              self: true,
             },
           },
         ],
@@ -113,6 +117,7 @@ module.exports = {
     ...pageFiles.map((file) => {
       return new HtmlWebpackPlugin({
         template: file,
+        data: envSet,
         minify: envSet.minify,
       })
     }),

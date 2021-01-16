@@ -1,4 +1,8 @@
+- env = self.htmlWebpackPlugin.options.data
 head
   meta(charset="utf-8")
   meta(name="viewport" content="width=device-width, initial-scale=1")
-  title Page Title
+  meta(name="description" content=env.description)
+  meta(name="keywords" content=env.keywords)
+
+  title #{env.title}
