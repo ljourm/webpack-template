@@ -1,8 +1,10 @@
-- env = self.htmlWebpackPlugin.options.data
+- env = self.htmlWebpackPlugin.options.env
 head
   meta(charset="utf-8")
   meta(name="viewport" content="width=device-width, initial-scale=1")
   meta(name="description" content=env.description)
   meta(name="keywords" content=env.keywords)
+  meta(name="robots" content=env.robots)
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
 
   title #{env.title}

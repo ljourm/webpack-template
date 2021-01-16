@@ -117,7 +117,7 @@ module.exports = {
     ...pageFiles.map((file) => {
       return new HtmlWebpackPlugin({
         template: file,
-        data: envSet,
+        env: envSet,
         minify: envSet.minify,
       })
     }),
