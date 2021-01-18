@@ -102,7 +102,7 @@ nav {
       .navbar-end {
         height: calc(100vh - #{$navbar-height});
         margin-left: 0;
-        background-color: #f5fcf5;
+        background-color: $base-color;
         transition: all 0.3s;
 
         &.is-active {
