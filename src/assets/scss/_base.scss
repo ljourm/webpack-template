@@ -6,6 +6,11 @@ h1::before {
   content: "# ";
 }
 
+#main {
+  display: none;
+  min-height: 100%;
+}
+
 .button {
   // autoprefixerの動作確認用
   user-select: none;

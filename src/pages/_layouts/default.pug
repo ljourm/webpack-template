@@ -2,6 +2,9 @@ html
   include _partials/head.pug
   body
     include _partials/header.pug
-    section.section
-      .container
-        block content
+    .loader-wrapper
+      include _partials/loader.pug
+      main#main
+        section.section
+          .container
+            block content
