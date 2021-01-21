@@ -1,0 +1,17 @@
+.top-image-box {
+  max-height: calc(100vh - #{$navbar-height});
+  overflow: hidden;
+
+  img {
+    width: 100%;
+  }
+}
+
+.top-sentence {
+  text-align: center;
+
+  h2 {
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+  }
+}

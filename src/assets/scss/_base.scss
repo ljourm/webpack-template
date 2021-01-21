@@ -11,6 +11,17 @@ h1::before {
   min-height: 100%;
 }
 
+.h1,
+.h2,
+.h3,
+.h4 {
+  margin-bottom: 0.5rem;
+}
+
+p:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
 .button {
   // autoprefixerの動作確認用
   user-select: none;

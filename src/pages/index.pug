@@ -1,16 +1,48 @@
 extends _layouts/default
 
 block content
-  h1.h1 h1
-  div
-    button.button.is-primary button
-    img(src=require("assets/img/sample.jpg").default)
+  section.hero.top-image-box
+    .is-align-content-flex-end
+      img(src=require("assets/img/sample.jpg").default)
 
-  h2.h2 太字
-  p
-    b 吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれ
+  section.section
+    .container
+      .columns
+        .column.is-4
+          .card
+            .card-image.has-text-centered
+              i.fas.fa-broom
+            .card-content
+              h3 吾輩は猫である
+              p 吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれ
+        .column.is-4
+          .card
+            .card-image.has-text-centered
+              i.fas.fa-car
+            .card-content
+              h3 吾輩は猫である
+              p 吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれ
+        .column.is-4
+          .card
+            .card-image.has-text-centered
+              i.fas.fa-capsules
+            .card-content
+              h3 吾輩は猫である
+              p 吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれ
 
-  h2.h2 通常
-  p 吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれ
+  section.section
+    .container
+      .columns
+        .column.is-8.is-offset-2.top-sentence
+          h2 吾輩は猫である
+          p 吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれ
 
-  i.fas.fa-bookmark.fa-3x
+  section.section
+    .container
+      .box
+        h2.h2 太字
+        p
+          b 吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれ
+
+        h2.h2 通常
+        p 吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれ
