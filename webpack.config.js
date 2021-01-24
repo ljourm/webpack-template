@@ -29,7 +29,7 @@ module.exports = {
   output: {
     path: outputPath,
     publicPath: "",
-    filename: "bundle.js",
+    filename: "bundle-[hash].js",
   },
   devServer: {
     contentBase: outputPath,
@@ -111,7 +111,7 @@ module.exports = {
       cleanOnceBeforeBuildPatterns: ["**/*", "!.keep", "!css", "!img"],
     }),
     new MiniCssExtractPlugin({
-      filename: "css/style.css",
+      filename: "css/style.css?[contenthash]",
       ignoreOrder: true,
     }),
     ...pageFiles.map((file) => {
