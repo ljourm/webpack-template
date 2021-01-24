@@ -22,6 +22,12 @@ p:not(:last-child) {
   margin-bottom: 0.5rem;
 }
 
+.table {
+  th {
+    white-space: nowrap;
+  }
+}
+
 .button {
   // autoprefixerの動作確認用
   user-select: none;

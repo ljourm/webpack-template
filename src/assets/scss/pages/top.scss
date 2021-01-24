@@ -15,3 +15,9 @@
     font-size: 1.4rem;
   }
 }
+
+#price {
+  td:nth-child(2) {
+    white-space: nowrap;
+  }
+}
