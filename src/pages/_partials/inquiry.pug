@@ -1,0 +1,16 @@
+.inquiry-message
+  article.message.is-success.completed
+    .message-body
+      p お問い合わせ内容を送信しました。
+      p
+        | しばらく経っても届かない場合、「メールアドレスが誤っている」、「迷惑メールフォルダに振り分けられている」などの可能性があります。<br>
+        | 当方からの連絡がない場合、大変恐れ入りますが、メールにてお問い合わせくださいますようお願いいたします。
+  article.message.is-danger.error
+    .message-body
+      p エラーが発生しました。
+      p しばらく待ってから送信するか、メールにてお問い合わせください。
+
+.inquiry-form
+  include _inquiry/form.pug
+.inquiry-form-confirm
+  include _inquiry/form_confirm.pug

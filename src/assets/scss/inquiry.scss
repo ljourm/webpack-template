@@ -1,0 +1,18 @@
+.inquiry-message {
+  .completed,
+  .error {
+    display: none;
+  }
+}
+
+.inquiry-form-confirm,
+.inquiry-confirm-buttons,
+.inquiry-completed-buttons {
+  display: none;
+}
+
+.inquiry-form-confirm p {
+  padding-top: 0.375em;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}

@@ -1,0 +1,29 @@
+form.inquiry
+  .field.is-horizontal
+    .field-label.is-normal
+      label.label お名前
+    .field-body
+      .field
+        .control
+          input.input(name="name" placeholder="山田 太郎")
+  .field.is-horizontal
+    .field-label.is-normal
+      label.label 件名
+    .field-body
+      .field
+        .control
+          input.input(name="subject" placeholder="〇〇の件について")
+  .field.is-horizontal
+    .field-label.is-normal
+      label.label お問い合わせ内容
+    .field-body
+      .field
+        .control
+          textarea.textarea(name="body" placeholder="お問い合わせ内容")
+
+  .field.is-horizontal
+    .field-label
+    .field-body
+      .field.is-grouped.inquiry-input-buttons
+        .control
+          button.button.is-primary.next(type="submit") 確認画面に進む
