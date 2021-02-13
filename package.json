@@ -17,8 +17,8 @@
     "lint:pug": "pug-lint ."
   },
   "devDependencies": {
-    "@babel/core": "7.12.10",
-    "@babel/preset-env": "7.12.11",
+    "@babel/core": "7.12.16",
+    "@babel/preset-env": "7.12.16",
     "@fortawesome/fontawesome-svg-core": "1.2.32",
     "@fortawesome/free-solid-svg-icons": "5.15.1",
     "autoprefixer": "10.1.0",
