@@ -4,5 +4,8 @@
   ],
   "timezone": "Asia/Tokyo",
   "schedule": ["every weekend"],
-  "labels": ["renovate"]
+  "labels": ["renovate"],
+  "minor": {
+    "groupName": "all dependencies"
+  }
 }
