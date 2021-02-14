@@ -7,5 +7,8 @@
   "labels": ["renovate"],
   "minor": {
     "groupName": "all dependencies"
-  }
+  },
+  "stabilityDays": 3,
+  "prCreation": "not-pending",
+  "dependencyDashboard": true
 }
