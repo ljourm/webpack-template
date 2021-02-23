@@ -1,5 +1,6 @@
 import $ from "jquery"
 import "babel-polyfill"
+import "jquery-single-page-form"
 
 const modeInput = "input"
 const modeConfirm = "confirm"
