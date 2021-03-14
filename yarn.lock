@@ -4282,10 +4282,10 @@ jest-worker@^26.6.1:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jquery-single-page-form@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/jquery-single-page-form/-/jquery-single-page-form-0.1.1.tgz#a0c43c3f44cd360cb0f7baf4a61f1248adf811e4"
-  integrity sha512-oziWD4NZ59FJtW29wSLtu9T/d2OO3OLdYuPsfp4eivVaw3OQv0Nqc5t2qaLU5+saxAFs48gysTSHxbTXa7cVRw==
+jquery-single-page-form@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/jquery-single-page-form/-/jquery-single-page-form-0.2.0.tgz#2b7de72b6ae68e7889532b8beb9bcbf4ea75e990"
+  integrity sha512-48JUnYU63IkkeXicc2ER3Um8lqUBwl/OjPRlpRbdpKCNiA7AId7VbAcvhGfyjNFyx9E44zmtiMUElSGhjSXy1w==
 
 jquery@3.5.1:
   version "3.5.1"
