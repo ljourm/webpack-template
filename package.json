@@ -8,6 +8,7 @@
     "serve": "webpack serve",
     "build": "webpack",
     "build:prod": "cross-env NODE_ENV=\"production\" webpack",
+    "clean": "rimraf dist/*",
     "lint": "yarn lint:js && yarn lint:style && yarn lint:pug",
     "lint:fix": "yarn lint:js:fix && yarn lint:style:fix",
     "lint:js": "eslint .",
