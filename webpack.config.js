@@ -2,6 +2,8 @@ const environment = process.env.NODE_ENV || "development"
 const envSet = require(`./environments/${environment}.js`)
 const isDev = environment === "development"
 
+const siteRootPath = `./sites/${envSet.site}`
+
 const path = require("path")
 const globule = require("globule")
 
@@ -10,9 +12,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 const pageFiles = globule.find(
-  "./src/pages/**/*.pug", {
+  `${siteRootPath}/pages/**/*.pug`, {
     ignore: [
-      "./src/pages/**/_*/*.pug",
+      `${siteRootPath}/pages/**/_*/*.pug`,
     ],
   },
 )
@@ -22,7 +24,7 @@ const outputPath = path.resolve(__dirname, "dist")
 module.exports = {
   mode: envSet.mode,
   devtool: envSet.enabledSourceMap ? "source-map" : false,
-  entry: "./src/index.js",
+  entry: `${siteRootPath}/index.js`,
   output: {
     path: outputPath,
     publicPath: "",
@@ -125,7 +127,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-      assets: path.resolve(__dirname, "src/assets/"),
+      assets: path.resolve(__dirname, `${siteRootPath}/assets/`),
     },
   },
 }
