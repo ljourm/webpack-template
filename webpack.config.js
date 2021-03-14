@@ -1,8 +1,5 @@
 const environment = process.env.NODE_ENV || "development"
-const envSet = Object.assign(
-  require("./environments/base.js"),
-  require(`./environments/${environment}.js`),
-)
+const envSet = require(`./environments/${environment}.js`)
 const isDev = environment === "development"
 
 const path = require("path")
