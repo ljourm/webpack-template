@@ -110,7 +110,7 @@ module.exports = {
       cleanOnceBeforeBuildPatterns: ["**/*", "!.keep", "!css", "!img"],
     }),
     new MiniCssExtractPlugin({
-      filename: "css/style.css?[contenthash]",
+      filename: "style.css?[contenthash]",
       ignoreOrder: true,
     }),
     ...pageFiles.map((file) => {
