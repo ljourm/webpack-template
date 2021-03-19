@@ -2,8 +2,6 @@ const environment = process.env.NODE_ENV || "development"
 const envSet = require(`./environments/${environment}.js`)
 const isDev = environment === "development"
 
-const siteRootPath = `./sites/${envSet.site}`
-
 const path = require("path")
 const globule = require("globule")
 
@@ -11,15 +9,19 @@ const {CleanWebpackPlugin} = require("clean-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
+const outputPath = path.resolve(__dirname, "dist")
+
+const siteRootPath = `./sites/${envSet.site}`
+const pageRootPath = `${siteRootPath}/pages`
+
 const pageFiles = globule.find(
-  `${siteRootPath}/pages/**/*.pug`, {
+  `${pageRootPath}/**/*.pug`, {
     ignore: [
-      `${siteRootPath}/pages/**/_*/*.pug`,
+      `${pageRootPath}/**/_*.pug`,
+      `${pageRootPath}/**/_*/*.pug`,
     ],
   },
 )
-
-const outputPath = path.resolve(__dirname, "dist")
 
 module.exports = {
   mode: envSet.mode,
@@ -28,7 +30,7 @@ module.exports = {
   output: {
     path: outputPath,
     publicPath: "",
-    filename: "bundle-[hash].js",
+    filename: "bundle.js?[contenthash]",
   },
   devServer: {
     contentBase: outputPath,
@@ -55,7 +57,7 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              url: false,
+              url: true,
               sourceMap: envSet.enabledSourceMap,
               importLoaders: 2,
             },
@@ -83,12 +85,11 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jpe?g|gif|ico)$/i,
         loader: "file-loader",
-        options:{
-          name: (resourcePath) => {
-            return resourcePath.match(/img.*$/)[0]
-          },
+        options: {
+          name: "./img/[folder]/[name].[ext]?[contenthash]",
+          esModule: false,
         },
       },
       {
@@ -114,7 +115,9 @@ module.exports = {
       ignoreOrder: true,
     }),
     ...pageFiles.map((file) => {
+      const filename = file.replace(`${pageRootPath}/`, "").replace(".pug", ".html")
       return new HtmlWebpackPlugin({
+        filename: filename,
         template: file,
         env: envSet,
         minify: envSet.minify,
