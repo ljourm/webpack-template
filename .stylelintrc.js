@@ -15,5 +15,6 @@ module.exports = {
   },
   "ignoreFiles": [
     "dist/**",
+    "sites/**/vendor/**",
   ],
 }
