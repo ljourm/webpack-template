@@ -1,4 +1,6 @@
-// https://projects.lukehaas.me/css-loaders/
+/* stylelint-disable max-line-length */
+
+/* https://projects.lukehaas.me/css-loaders/ */
 .loading-icon {
   position: relative;
   width: 1em;
@@ -8,14 +10,11 @@
   font-size: 20px;
   text-indent: -9999em;
   border-radius: 50%;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
   transform: translateZ(0);
-  -webkit-animation: load4 1.3s infinite linear;
   animation: load4 1.3s infinite linear;
 }
 
-@-webkit-keyframes load4 {
+@keyframes load4 {
   0%,
   100% {
     box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;

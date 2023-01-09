@@ -12,7 +12,7 @@ nav {
   }
 
   &.is-fixed-top {
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 8px 0 rgb(0 0 0 / 12%);
     transform: translateY(-100%);
     transition: all 0.3s;
 
