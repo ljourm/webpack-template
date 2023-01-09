@@ -33,7 +33,9 @@ module.exports = {
     filename: "bundle.js?[contenthash]",
   },
   devServer: {
-    contentBase: outputPath,
+    static: {
+      directory: outputPath,
+    },
     open: true,
   },
   module: {
