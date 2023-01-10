@@ -1,27 +1,22 @@
-const environment = process.env.NODE_ENV || "development"
-const envSet = require(`./environments/${environment}.js`)
-const isDev = environment === "development"
+const environment = process.env.NODE_ENV || "development";
+const envSet = require(`./environments/${environment}.js`);
+const isDev = environment === "development";
 
-const path = require("path")
-const globule = require("globule")
+const path = require("path");
+const globule = require("globule");
 
-const {CleanWebpackPlugin} = require("clean-webpack-plugin")
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-const outputPath = path.resolve(__dirname, "dist")
+const outputPath = path.resolve(__dirname, "dist");
 
-const siteRootPath = `./sites/${envSet.site}`
-const pageRootPath = `${siteRootPath}/pages`
+const siteRootPath = `./sites/${envSet.site}`;
+const pageRootPath = `${siteRootPath}/pages`;
 
-const pageFiles = globule.find(
-  `${pageRootPath}/**/*.pug`, {
-    ignore: [
-      `${pageRootPath}/**/_*.pug`,
-      `${pageRootPath}/**/_*/*.pug`,
-    ],
-  },
-)
+const pageFiles = globule.find(`${pageRootPath}/**/*.pug`, {
+  ignore: [`${pageRootPath}/**/_*.pug`, `${pageRootPath}/**/_*/*.pug`],
+});
 
 module.exports = {
   mode: envSet.mode,
@@ -69,9 +64,7 @@ module.exports = {
             options: {
               sourceMap: envSet.enabledSourceMap,
               postcssOptions: {
-                plugins: [
-                  ["autoprefixer"],
-                ],
+                plugins: [["autoprefixer"]],
               },
             },
           },
@@ -124,13 +117,13 @@ module.exports = {
       ignoreOrder: true,
     }),
     ...pageFiles.map((file) => {
-      const filename = file.replace(`${pageRootPath}/`, "").replace(".pug", ".html")
+      const filename = file.replace(`${pageRootPath}/`, "").replace(".pug", ".html");
       return new HtmlWebpackPlugin({
         filename: filename,
         template: file,
         env: envSet,
         minify: envSet.minify,
-      })
+      });
     }),
   ],
   target: isDev ? "web" : ["web", "es5"],
@@ -142,4 +135,4 @@ module.exports = {
       assets: path.resolve(__dirname, `${siteRootPath}/assets/`),
     },
   },
-}
+};

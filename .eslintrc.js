@@ -12,10 +12,10 @@ module.exports = {
   extends: ["eslint:recommended"],
   plugins: ["prettier"],
   rules: {
-    "indent": ["error", 2],
+    indent: ["error", 2],
     "no-console": "off",
     "max-len": ["error", { code: 120 }],
-    "quotes": ["error", "double"],
+    quotes: ["error", "double"],
     "comma-dangle": ["error", "always-multiline"],
   },
-}
+};

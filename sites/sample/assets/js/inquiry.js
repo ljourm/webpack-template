@@ -1,108 +1,93 @@
-import $ from "jquery"
-import "babel-polyfill"
-import "jquery-single-page-form"
+import $ from "jquery";
+import "babel-polyfill";
+import "jquery-single-page-form";
 
-const modeInput = "input"
-const modeConfirm = "confirm"
-const modeCompleted = "completed"
+const modeInput = "input";
+const modeConfirm = "confirm";
+const modeCompleted = "completed";
 
-const fadeSpeed = 300
+const fadeSpeed = 300;
 
-const inputNames = ["name", "subject", "body"]
-let inputMessages = {}
+const inputNames = ["name", "subject", "body"];
+let inputMessages = {};
 
 const changeVisible = (jqueryObj, visible) => {
-  if(visible) {
-    jqueryObj.fadeIn(fadeSpeed)
+  if (visible) {
+    jqueryObj.fadeIn(fadeSpeed);
   } else {
-    jqueryObj.hide()
+    jqueryObj.hide();
   }
-}
+};
 
 const changeMode = (mode) => {
-  changeVisible(
-    $(".inquiry-form"),
-    (mode === modeInput),
-  )
-  changeVisible(
-    $(".inquiry-form-confirm"),
-    (mode === modeConfirm || mode === modeCompleted),
-  )
-  changeVisible(
-    $(".inquiry-confirm-buttons"),
-    (mode === modeConfirm),
-  )
-  changeVisible(
-    $(".inquiry-completed-buttons"),
-    (mode === modeCompleted),
-  )
-  changeVisible(
-    $(".inquiry-message > .completed"),
-    (mode === modeCompleted),
-  )
+  changeVisible($(".inquiry-form"), mode === modeInput);
+  changeVisible($(".inquiry-form-confirm"), mode === modeConfirm || mode === modeCompleted);
+  changeVisible($(".inquiry-confirm-buttons"), mode === modeConfirm);
+  changeVisible($(".inquiry-completed-buttons"), mode === modeCompleted);
+  changeVisible($(".inquiry-message > .completed"), mode === modeCompleted);
 
-  $(".inquiry-message > .error").hide()
-}
+  $(".inquiry-message > .error").hide();
+};
 
 const submitClicked = () => {
   for (const name of inputNames) {
-    inputMessages[name] = $(".inquiry-form [name=\"" + name + "\"]").val()
-    $(".inquiry-form-confirm p." + name).text(inputMessages[name])
+    inputMessages[name] = $(".inquiry-form [name=\"" + name + "\"]").val();
+    $(".inquiry-form-confirm p." + name).text(inputMessages[name]);
   }
 
-  changeMode(modeConfirm)
+  changeMode(modeConfirm);
 
-  return false
-}
+  return false;
+};
 
 const sendInquiry = async () => {
   // TODO
-  await new Promise(resolve => setTimeout(resolve, 1000))
+  await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  return true
-}
+  return true;
+};
 
-const sendClicked = async ()=> {
-  const sendButton = $(".inquiry-confirm-buttons button.next")
-  const backButton = $(".inquiry-confirm-buttons button.prev")
+const sendClicked = async () => {
+  const sendButton = $(".inquiry-confirm-buttons button.next");
+  const backButton = $(".inquiry-confirm-buttons button.prev");
 
-  sendButton.prop("disabled", true).addClass("is-loading")
-  backButton.prop("disabled", true)
+  sendButton.prop("disabled", true).addClass("is-loading");
+  backButton.prop("disabled", true);
 
-  const result = await sendInquiry()
+  const result = await sendInquiry();
 
-  sendButton.prop("disabled", false).removeClass("is-loading")
-  backButton.prop("disabled", false)
+  sendButton.prop("disabled", false).removeClass("is-loading");
+  backButton.prop("disabled", false);
 
-  if(result) {
-    changeMode(modeCompleted)
+  if (result) {
+    changeMode(modeCompleted);
   } else {
-    $(".inquiry-message > .error").fadeIn(fadeSpeed)
+    $(".inquiry-message > .error").fadeIn(fadeSpeed);
   }
-}
+};
 
 const clearFormClicked = () => {
   for (const name of inputNames) {
-    $(".inquiry-form [name=\"" + name + "\"]").val("")
+    $(".inquiry-form [name=\"" + name + "\"]").val("");
   }
 
-  changeMode(modeInput)
-}
+  changeMode(modeInput);
+};
 
 $(window).on("load", () => {
   $("form.inquiry").on("submit", () => {
-    return submitClicked()
-  })
+    return submitClicked();
+  });
 
   $(".inquiry-confirm-buttons button.prev").on("click", () => {
-    changeMode(modeInput)
-  })
+    changeMode(modeInput);
+  });
 
   $(".inquiry-confirm-buttons button.next").on("click", () => {
-    sendClicked()
-  })
+    sendClicked();
+  });
 
   $(".inquiry-completed-buttons button.next").on("click", () => {
-    clearFormClicked()
-  })
-})
+    clearFormClicked();
+  });
+});

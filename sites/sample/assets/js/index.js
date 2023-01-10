@@ -1,4 +1,4 @@
-import "./fontawesome"
-import "./loader"
-import "./header"
-import "./inquiry"
+import "./fontawesome";
+import "./loader";
+import "./header";
+import "./inquiry";
