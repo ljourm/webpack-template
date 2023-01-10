@@ -1,6 +1,7 @@
 module.exports = {
   "plugins": [
     "stylelint-scss",
+    "stylelint-prettier",
   ],
   "extends": [
     "stylelint-config-standard",
@@ -13,6 +14,7 @@ module.exports = {
     "scss/at-rule-no-unknown": true,
     "no-empty-source": null,
     "no-descending-specificity": null,
+    "prettier/prettier": true,
   },
   "ignoreFiles": [
     "dist/**",
