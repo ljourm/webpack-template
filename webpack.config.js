@@ -88,10 +88,9 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|ico)$/i,
-        loader: "file-loader",
-        options: {
-          name: "./img/[folder]/[name].[ext]?[contenthash]",
-          esModule: false,
+        type: "asset/resource",
+        generator: {
+          filename: "./img/[folder]/[name].[ext]?[contenthash]",
         },
       },
       {
