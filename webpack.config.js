@@ -90,7 +90,15 @@ module.exports = {
         test: /\.(png|jpe?g|gif|ico)$/i,
         type: "asset/resource",
         generator: {
-          filename: "./img/[folder]/[name].[ext]?[contenthash]",
+          filename: "./img/[name].[ext]?[contenthash]",
+        },
+      },
+      {
+        test: /\.(pdf)$/i,
+        type: "asset/resource",
+        include: path.resolve(__dirname, siteRootPath, "assets", "pdf"),
+        generator: {
+          filename: "./pdf/[name].[ext]",
         },
       },
       {
