@@ -13,7 +13,6 @@ module.exports = {
   plugins: ["prettier"],
   rules: {
     "indent": ["error", 2],
-    "semi": [2, "never"],
     "no-console": "off",
     "max-len": ["error", { code: 120 }],
     "quotes": ["error", "double"],
