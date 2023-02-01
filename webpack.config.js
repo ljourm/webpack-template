@@ -87,6 +87,13 @@ module.exports = {
         },
       },
       {
+        test: /\.(mp4)$/i,
+        type: "asset/resource",
+        generator: {
+          filename: "./video/[name][ext]?[contenthash]",
+        },
+      },
+      {
         test: /\.(pdf)$/i,
         type: "asset/resource",
         include: path.resolve(__dirname, siteRootPath, "assets", "pdf"),
