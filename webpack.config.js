@@ -24,7 +24,7 @@ module.exports = {
   entry: `${siteRootPath}/index.js`,
   output: {
     path: outputPath,
-    publicPath: "",
+    publicPath: "/",
     filename: "bundle.js?[contenthash]",
   },
   devServer: {
