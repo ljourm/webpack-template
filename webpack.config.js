@@ -32,6 +32,7 @@ module.exports = {
       directory: outputPath,
     },
     open: true,
+    watchFiles: [`${siteRootPath}/**/*`],
   },
   module: {
     rules: [
