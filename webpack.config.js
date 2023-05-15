@@ -25,6 +25,7 @@ module.exports = {
   output: {
     path: outputPath,
     publicPath: "/",
+    // publicPath: "/preview/",
     filename: "bundle.js?[contenthash]",
   },
   devServer: {
