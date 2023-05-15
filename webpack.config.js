@@ -82,17 +82,17 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|jpe?g|gif|ico|svg)$/i,
+        test: /\.(png|jpe?g|gif|webp|avif|ico|svg)$/i,
         type: "asset/resource",
         generator: {
-          filename: "./img/[name][ext]?[contenthash]",
+          filename: "img/[name][ext]?[contenthash]",
         },
       },
       {
         test: /\.(mp4)$/i,
         type: "asset/resource",
         generator: {
-          filename: "./video/[name][ext]?[contenthash]",
+          filename: "video/[name][ext]?[contenthash]",
         },
       },
       {
@@ -100,7 +100,7 @@ module.exports = {
         type: "asset/resource",
         include: path.resolve(__dirname, siteRootPath, "assets", "pdf"),
         generator: {
-          filename: "./pdf/[name][ext]",
+          filename: "pdf/[name][ext]",
         },
       },
       {
